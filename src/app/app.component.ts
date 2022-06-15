@@ -13,6 +13,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private static readonly DEFAULT_VALUE_STRING: string = "";
   private static readonly DEFAULT_VALUE_DATE: Date | null = null;
   private static readonly AGE_CHECK_VALUE: number = 18;
+  private static readonly NUMBER_OF_MS_IN_YEAR: number = 31536000000;
   private subscription: Subscription = new Subscription();
 
   public TestFormControlName = TestFormControlName;
@@ -58,8 +59,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.subscription.add(
       this.dateOfBirthController.valueChanges.subscribe((selectedDate: Date) => {
-        const timeDiff: number = Math.abs(Date.now() - selectedDate.getTime());
-        this.age = Math.floor(timeDiff / (1000 * 3600 * 24) / 365);
+        const diffInMs: number = Math.abs(Date.now() - selectedDate.getTime());
+        this.age = diffInMs / AppComponent.NUMBER_OF_MS_IN_YEAR;
 
         if (this.adult) {
           this.form.addControl(

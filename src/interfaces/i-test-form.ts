@@ -1,8 +1,8 @@
 import { FormControl } from "@angular/forms";
 import { TestFormControlName } from "src/form-control-names/test-form-control-name.enum";
-import { TestFormControlType } from "src/types/test-form";
+import { TestFormType } from "src/types/test-form";
 
-export interface ITestForm extends TestFormControlType {
+export interface ITestForm extends TestFormType {
   [TestFormControlName.FIRST_NAME]: FormControl<string>;
   [TestFormControlName.LAST_NAME]: FormControl<string>;
   [TestFormControlName.EMAIL_ADDRESS]: FormControl<string>;

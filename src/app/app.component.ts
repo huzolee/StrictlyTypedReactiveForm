@@ -12,6 +12,7 @@ import { ITestForm } from "src/interfaces/i-test-form";
 export class AppComponent implements OnInit, OnDestroy {
   private static readonly DEFAULT_VALUE_STRING: string = "";
   private static readonly DEFAULT_VALUE_DATE: Date | null = null;
+  private static readonly AGE_CHECK_VALUE: number = 18;
   private subscription: Subscription = new Subscription();
 
   public TestFormControlName = TestFormControlName;
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
   public age!: number;
 
   get adult(): boolean {
-    return this.age > 18;
+    return this.age > AppComponent.AGE_CHECK_VALUE;
   }
 
   get dateOfBirthController(): FormControl<Date> {

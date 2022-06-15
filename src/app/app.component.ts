@@ -32,30 +32,25 @@ export class AppComponent implements OnInit, OnDestroy {
     this.form = new FormGroup<ITestForm>({
       [TestFormControlName.FIRST_NAME]: new FormControl<string>(AppComponent.DEFAULT_VALUE_STRING, {
         nonNullable: true,
-        initialValueIsDefault: true,
         validators: Validators.required,
       }),
       [TestFormControlName.LAST_NAME]: new FormControl<string>(AppComponent.DEFAULT_VALUE_STRING, {
         nonNullable: true,
-        initialValueIsDefault: true,
         validators: Validators.required,
       }),
       [TestFormControlName.EMAIL_ADDRESS]: new FormControl<string>(
         AppComponent.DEFAULT_VALUE_STRING,
         {
           nonNullable: true,
-          initialValueIsDefault: true,
           validators: [Validators.required, Validators.email],
         }
       ),
       [TestFormControlName.PASSWORD]: new FormControl<string>(AppComponent.DEFAULT_VALUE_STRING, {
         nonNullable: true,
-        initialValueIsDefault: true,
         validators: [Validators.required],
       }),
       [TestFormControlName.DATE_OF_BIRTH]: new FormControl<Date>(AppComponent.DEFAULT_VALUE_DATE!, {
         nonNullable: true,
-        initialValueIsDefault: true,
         validators: Validators.required,
       }),
     });
@@ -70,7 +65,6 @@ export class AppComponent implements OnInit, OnDestroy {
             TestFormControlName.ADULT_CONTENT,
             new FormControl(false, {
               nonNullable: true,
-              initialValueIsDefault: true,
             })
           );
         } else {
